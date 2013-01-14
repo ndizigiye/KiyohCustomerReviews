@@ -1,0 +1,6 @@
+Kiyoh_Customerreview.xml                   	                           app/etc/modules/Kiyoh_Customerreview.xml
+app/code/community/Kiyoh/Customerreview                                    app/code/community/Kiyoh/Customerreview
+app/design/frontend/default/default/template/customerreview                app/design/frontend/default/default/template/customerreview
+app/design/frontend/default/default/template/kiyohcheckout                 app/design/frontend/default/default/template/kiyohcheckout
+app/design/frontend/default/default/layout/customerreview.xml              app/design/frontend/default/default/layout/customerreview.xml
+

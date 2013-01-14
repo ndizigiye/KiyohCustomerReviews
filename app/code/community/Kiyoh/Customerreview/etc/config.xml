@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Kiyoh
+ * @package    Kiyoh_Customerreview
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Kiyoh_Customerreview>
+            <version>0.1.0</version>
+        </Kiyoh_Customerreview>
+    </modules>
+    <frontend>
+        <routers>
+            <customerreview>
+                <use>standard</use>
+                <args>
+                    <module>Kiyoh_Customerreview</module>
+                    <frontName>customerreview</frontName>
+                </args>
+            </customerreview>
+        </routers>
+        <layout>
+            <updates>
+                <customerreview>
+                    <file>customerreview.xml</file>
+                </customerreview>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<customerreview>
+				<use>admin</use>
+				<args>
+					<module>Kiyoh_Customerreview</module>
+					<frontName>customerreview</frontName>
+				</args>
+			</customerreview>
+			<adminhtml>
+				<args>
+				  <modules>
+					<Kiyoh_Customerreview_Adminhtml before="Mage_Adminhtml">Kiyoh_Customerreview_Adminhtml</Kiyoh_Customerreview_Adminhtml>
+				  </modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Kiyoh_Customerreview>
+							<title>Customerreview Module</title>
+							<sort_order>10</sort_order>
+						</Kiyoh_Customerreview>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<customerreview>
+					<file>customerreview.xml</file>
+				</customerreview>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+      <customerreview_adminhtml>
+        <class>Kiyoh_Customerreview_Adminhtml_Model</class>
+      </customerreview_adminhtml>
+
+            <customerreview>
+                <class>Kiyoh_Customerreview_Model</class>
+                <resourceModel>customerreview_mysql4</resourceModel>
+            </customerreview>
+            <customerreview_mysql4>
+                <class>Kiyoh_Customerreview_Model_Mysql4</class>
+                <entities>
+                    <customerreview>
+                        <table>customerreview</table>
+                    </customerreview>
+                </entities>
+            </customerreview_mysql4>
+        </models>
+        <resources>
+            <customerreview_setup>
+                <setup>
+                    <module>Kiyoh_Customerreview</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </customerreview_setup>
+            <customerreview_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </customerreview_write>
+            <customerreview_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </customerreview_read>
+        </resources>
+        <blocks>
+            <customerreview>
+                <class>Kiyoh_Customerreview_Block</class>
+            </customerreview>
+        </blocks>
+        <helpers>
+            <customerreview>
+                <class>Kiyoh_Customerreview_Helper</class>
+            </customerreview>
+        </helpers>
+    </global>
+	<default>
+    <customconfig>
+        <review_group>
+            <custom_action>sendInvitation</custom_action>
+        </review_group>
+    </customconfig>
+</default>
+</config>
